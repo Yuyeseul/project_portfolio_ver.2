@@ -27,7 +27,7 @@ function init() {
     open_nav.addEventListener("click", toggleHandler)
 }
 init() 
-// tab컨텐츠
+
 
 // nav의 클릭 이벤트
 for(let j of nav){j.classList.remove('active')}
@@ -48,48 +48,6 @@ nav.forEach(function(t,i){
 })
 
 
-// 이미지팝업
-$(function(){
-    // 변수 선언
-    var imageButton = $('.image a');
-    var popup = $('.img-popup');
-    var closeButton = popup.find('.close-btn');
-    var htmlAndBody = $('html, body');
-    var focusTarget;
-    // 팝업 생성
-    imageButton.on('click', function(e){
-        e.preventDefault();
-        var popupImg = popup.find('> .popup-inner > img');
-        var image = $(this).find('> img');
-        var src = image.attr('src');
-        var alt = image.attr('alt');
-        focusTarget = $(this);
-        popupImg.attr('src', src).attr('alt', alt);
-        createPopup();
-    });
-    // 팝업 제거
-    popup.on('click', function(){
-        removePopup();
-    });
-    closeButton.on('click', function(e){
-        e.preventDefault();
-        removePopup();
-    });
-    // 팝업 생성 함수
-    function createPopup(){
-        popup.addClass('active');
-        htmlAndBody.css('overflow-y', 'hidden');
-        setTimeout(function(){
-            closeButton.focus();
-        }, 50);
-    }
-    // 팝업 제거 함수
-    function removePopup(){
-        popup.removeClass('active');
-        focusTarget.focus();
-        htmlAndBody.css('overflow-y', 'visible');
-    }
-})
 
 // swiper
 const etc_slide = new Swiper('.etc_slide',{

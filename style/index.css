@@ -18,15 +18,15 @@ header .gnb {
     align-items: center;
 }
 header .gnb h1 {padding: 20px 0;}
-header .gnb h1 a {font-weight: 700; font-size: 1.563rem; padding: 20px 0;}
+header .gnb h1 .scroll {font-weight: 700; font-size: 1.563rem; padding: 20px 0;}
 header .gnb p {font-size: 1.563rem; color: #B2B1B9;}
 header .gnb nav {display: flex;}
-header .gnb nav a {font-size: 1.4rem; color: #aeadb6; padding: 20px; transition: all 0.3s;}
-header .gnb nav a:hover {color: rgb(123, 117, 214);}
-header .gnb nav a:hover::after {width: 100%;}
-header .gnb nav a.active {font-weight: 700; color:#000; transition: all 0.5s;}
-header .gnb nav a.active::after {width: 100%;}
-header .gnb nav a::after {
+header .gnb nav .scroll {font-size: 1.4rem; color: #aeadb6; padding: 20px; transition: all 0.3s;}
+header .gnb nav .scroll:hover {color: rgb(123, 117, 214);}
+header .gnb nav .scroll:hover::after {width: 100%;}
+header .gnb nav .scroll.active {font-weight: 700; color:#000; transition: all 0.5s;}
+header .gnb nav .scroll.active::after {width: 100%;}
+header .gnb nav .scroll::after {
     content: ''; width: 0; height: 3.5px; background-color: #ffffff; display: block;
     margin-top: 4px;  transition: all 0.5s;
 }
@@ -74,13 +74,13 @@ main #home {
     display: flex;
     justify-content: space-between;
 }
-main #home .title {padding-top: 400px;}
+main #home .title {padding-top: 400px;padding-left: 50px;}
 main #home .title h1 {padding-left: 15px; font-size: 2.5rem; line-height: 50px; font-weight: 700;}
 main #home .title h1 span {font-size: 2.5rem; font-weight: 700;}
 main #home .title p {margin-top: 35px;}
 main #home .title p img {}
 /* #profile */
-main #profile {}
+main #profile {padding-left: 50px;}
 main #profile h1 {font-size: 2.4rem; font-weight: 700; line-height: 50px;}
 main #profile h1 em {font-size: 2.5rem; font-weight: 700; color: rgb(96, 90, 177);}
 main #profile .container {
@@ -88,8 +88,11 @@ main #profile .container {
     margin-top: 100px;
     justify-content:space-between;
 }
-main #profile .container .profile_photo {margin-right: 100px;}
-main #profile .container .profile_photo img {}
+main #profile .container .profile_photo {}
+main #profile .container .profile_photo img {
+    width: calc(80% - 10px / 2);
+    height: calc(80% -10px/2);
+    display: block;}
 main #profile .container .info {
     display: flex; flex-flow:column wrap;
     height: 580px; width: 100%;
@@ -112,29 +115,32 @@ main #profile .container .info li p {font-size: 1.1rem; line-height: 40px;}
 main section .sub_title { padding: 70px 0; text-align: center;}
 main section .sub_title h1 {font-size: 2.5rem; font-weight: 700;}
 
-/* #design */
-main #design {}
-main #design .sub_title {}
-main #design .sub_title h1 {}
-main #design .container {}
-main #design .container .contents .title {}
-main #design .container .contents .title h2 {font-size: 1.953rem; font-weight: 700;}
-main #design .container .contents {
+/* #portfolio */
+main #portfolio {padding-left: 50px;}
+main #portfolio .sub_title {}
+main #portfolio .sub_title h1 {}
+main #portfolio .container {}
+main #portfolio .container .contents .title {}
+main #portfolio .container .contents .title h2 {font-size: 1.953rem; font-weight: 700;}
+main #portfolio .container .contents {
     padding: 50px 0;
     display: flex; flex-flow: column wrap;
     justify-content: center;
     margin-bottom: 20px; gap:20px;
 }
-main #design .container .contents .image {display: flex; flex-flow: row wrap; gap: 40px; padding: 30px 0;}
-main #design .container .contents .image a {
-    width: calc(25% - 120px / 4);
+main #portfolio .container .contents .image {display: flex; flex-flow: row wrap; gap: 40px; padding: 30px;}
+main #portfolio .container .contents .image .aw{
+    width: calc(25% - 10px / 4);
     display: block;
+    padding-bottom: 30px;
 }
-main #design .container .detail .image a,
-main #design .container .cardnews .image a {height: 395px; overflow: hidden;}
-main #design .contents .image a img {width: 100%;}
+main #portfolio .container .contents .image h2 {padding-left: 50px; padding-bottom: 15px ; font-size: 1.5rem; line-height: 40px; font-weight: 700;}
+main #portfolio .container .contents .image p {font-size: 1.1rem; line-height: 40px;}
+main #portfolio .contents .image img {width: 100%;}
 /* #etc */
-main #etc {position: relative; padding-bottom: 50px;}
+main #etc {position: relative; padding-bottom: 50px;padding-left: 50px;}
+main #etc .etc_slide {}
+main #etc .etc_slide .swiper-wrapper {}
 main #etc .etc_slide .swiper-wrapper .swiper-slide {position: relative;}
 main #etc .etc_slide .swiper-wrapper .swiper-slide a {display: block; width: 100%; height: 300px;}
 main #etc .etc_slide .swiper-wrapper .swiper-slide a img {width: 100%;}
@@ -153,6 +159,7 @@ main #etc .etc_slide .swiper-button-prev,
 main #etc .etc_slide .swiper-button-next {background: no-repeat center;}
 main #etc .etc_slide .swiper-button-prev {background-image: url(../images/navigate_prev.png);}
 main #etc .etc_slide .swiper-button-next {background-image: url(../images/navigate_next.png);}
+main #etc .etc_slide .swiper-wrapper  {}
 main #etc .swiper-pagination {bottom:0;}
 main #etc .swiper-pagination-bullet {transition: all 0.3s;}
 main #etc .swiper-pagination-bullet-active {background-color: #FFD523; width: 20px; border-radius: 10px;}
